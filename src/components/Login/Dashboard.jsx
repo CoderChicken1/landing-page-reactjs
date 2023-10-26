@@ -7,7 +7,14 @@ const Dashboard = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState({});
 
+  const handleUnload = (e) => {
+    e.preventDefault();
+    localStorage.removeItem("token");
+  };
+
   useEffect(() => {
+    window.addEventListener("beforeunload", handleUnload);
+
     if (
       localStorage.getItem("token") == "" ||
       localStorage.getItem("token") == null
@@ -16,7 +23,8 @@ const Dashboard = () => {
     } else {
       getUser();
     }
-  }, []);
+    return () => window.removeEventListener("beforeunload", handleUnload);
+  }, [handleUnload]);
 
   const getUser = () => {
     axios

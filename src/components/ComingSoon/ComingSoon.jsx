@@ -4,14 +4,17 @@ import '@leenguyen/react-flip-clock-countdown/dist/index.css';
 import "./ComingSoon.css"
 import images from '../../constants/images';
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const ComingSoon = () => {
+  const navigate = useNavigate();
   const redirectToHome = () => {
-    window.location.href = '/home';
+    navigate("/home");
   };
 
   useEffect(() => {
-    setTimeout(redirectToHome, 5 * 60 * 1000);
+    //setTimeout(redirectToHome, 5 * 60 * 1000);
+    setTimeout(redirectToHome, 5  * 1000);
   }, []);
   return (
     <section className="container__coming" style = {{

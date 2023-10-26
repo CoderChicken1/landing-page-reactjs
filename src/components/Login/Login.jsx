@@ -12,9 +12,15 @@ const Login = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
-    const expiredInRemember = localStorage.getItem("expiredInRemember");
-    if (expiredInRemember) {
-      checkRememberMe(expiredInRemember);
+    const rememberMeSaved = localStorage.getItem("rememberMe");
+    if (rememberMeSaved === "true") {
+      const expiredInRemember = localStorage.getItem("expiredInRemember");
+      if (expiredInRemember) {
+        checkRememberMe(expiredInRemember);
+      }
+    } else {
+
+      localStorage.removeItem("token");
     }
 
     if (
@@ -24,21 +30,7 @@ const Login = () => {
       navigate("/dashboard");
     }
     console.log(localStorage.getItem("token"));
-    console.log(rememberMe);
   }, []);
-
-useEffect(()=>{
-    window.addEventListener("beforeunload", async () => {
-      if (rememberMe === false) {
-        const token = localStorage.getItem("token");
-        if (token) {
-          localStorage.removeItem("token");
-        //  await axios.post("/api/logout", {}, { headers: { Authorization: "Bearer " + token } });
-        }
-      }
-    });
-},[rememberMe]);
-  
 
   const loginAction = (e) => {
     setValidationErrors({});
@@ -65,6 +57,7 @@ useEffect(()=>{
         }
       });
 
+    localStorage.setItem("rememberMe", rememberMe);
     if (rememberMe) {
       const today = new Date();
       today.setDate(today.getDate() + 30);
@@ -72,17 +65,16 @@ useEffect(()=>{
       localStorage.setItem("expiredInRemember", today);
       localStorage.setItem("rememberedEmail", email);
       localStorage.setItem("rememberedPassword", password);
-    }else{
+    } else {
       localStorage.removeItem("expiredInRemember");
       localStorage.removeItem("rememberedEmail");
       localStorage.removeItem("rememberedPassword");
     }
- 
   };
 
   const handleRememberMeChange = (event) => {
     setRememberMe(event.target.checked);
-    console.log(rememberMe);
+    console.log("ticked", rememberMe);
   };
 
   const checkRememberMe = (expiredInRemember) => {
@@ -90,7 +82,6 @@ useEffect(()=>{
     const expiredDate = new Date(expiredInRemember);
 
     // Check today > addition after 30 days
-
     if (currrentDate > expiredDate) {
       localStorage.removeItem("rememberedEmail");
       localStorage.removeItem("rememberedPassword");
@@ -98,7 +89,7 @@ useEffect(()=>{
     } else {
       const rememberedEmail = localStorage.getItem("rememberedEmail");
       const rememberedPassword = localStorage.getItem("rememberedPassword");
-      if (rememberedEmail && rememberedPassword ) {
+      if (rememberedEmail && rememberedPassword) {
         setEmail(rememberedEmail);
         setPassword(rememberedPassword);
         setRememberMe(true);
