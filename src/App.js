@@ -12,20 +12,20 @@ import {
   Route,
   Link,
   Switch,
-  Navigate
+  Navigate,
 } from "react-router-dom";
 import React from "react";
 import Login from "./components/Login/Login";
 import Dashboard from "./components/Login/Dashboard";
 import Register from "./components/Login/Register";
-const ProtectedRoute = ({ children }) => {
-  const isLoggedIn = localStorage.getItem("token");
-  if (isLoggedIn) {
-    return <>{children}</>;
-  } else {
-    return <Navigate to="/" />;
-  }
-};
+// const ProtectedRoute = ({ children }) => {
+//   const isLoggedIn = localStorage.getItem("token");
+//   if (isLoggedIn) {
+//     return <>{children}</>;
+//   } else {
+//     return <Navigate to="/" />;
+//   }
+// };
 const App = () => {
   const HomePage = () => {
     return (
@@ -39,7 +39,7 @@ const App = () => {
       </div>
     );
   };
-  
+
   return (
     <div className="App">
       {/* <Router>
@@ -58,14 +58,14 @@ const App = () => {
           <Route exact path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/welcome" element={<ProtectedRoute><ComingSoon /></ProtectedRoute>} />
-          <Route path="/home" element={<ProtectedRoute><HomePage /></ProtectedRoute>} />
-          <Route path="/services" element={<ProtectedRoute><HomePage /></ProtectedRoute>} />
-          <Route path="/about" element={<ProtectedRoute><HomePage /></ProtectedRoute>} />
-          <Route path="/portfolio" element={<ProtectedRoute><HomePage /></ProtectedRoute>} />
-          <Route path="/contact" element={<ProtectedRoute><HomePage /></ProtectedRoute>} />
-          <Route path="/footer" element={<ProtectedRoute><HomePage /></ProtectedRoute>} />
-          </Routes>
+          <Route path="/welcome" element={<ComingSoon />} />
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/services" element={<HomePage />} />
+          <Route path="/about" element={<HomePage />} />
+          <Route path="/portfolio" element={<HomePage />} />
+          <Route path="/contact" element={<HomePage />} />
+          <Route path="/footer" element={<HomePage />} />
+        </Routes>
       </Router>
     </div>
   );
