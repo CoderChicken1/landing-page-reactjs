@@ -1,0 +1,42 @@
+.dashboard {
+  margin: 20px;
+}
+
+.dashboard__header {
+  background-color: #f8f9fa;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard__header h1 {
+  margin: 0;
+  font-weight: bold;
+}
+
+.dashboard nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dashboard nav ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.dashboard nav a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+.dashboard__content {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.welcome-message {
+  margin-top: 5rem;
+}

@@ -1,0 +1,111 @@
+.portfo__top{
+  margin: 80px;
+}
+.portfo__top .para__text {
+  letter-spacing: initial; 
+  text-align: center;
+}
+.portfo__content{
+  grid-gap: 15px
+}
+.portfo__content--item{
+  position: relative;
+}
+.portfo__content--item::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90%;
+  height: 90%;
+  background-color: rgba(54, 22, 214, 0.8);
+  opacity: 0;
+  transition: var(--transition);
+  margin-left: auto;
+  margin-right: auto;
+  margin: 10px 20px;
+  border-radius: 10px;
+}
+.portfo__content--item .icon{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: var(--transition);
+  background-color: aliceblue;
+  border-radius: 50%; 
+  overflow: hidden; 
+}
+.portfo__content--item .icon img{
+  display: block;
+  padding: 20%;
+}
+.portfo__content--item:hover .icon{
+  opacity: 1;
+  z-index: 1;
+}
+.portfo__content--item:hover::after{
+  opacity: 1;
+}
+.portfo-button{
+  margin: 70px auto;
+}
+@media screen and (min-width: 678px){
+  .portfo__content{
+      grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media screen and (min-width: 800px){
+  .portfo__content{
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1200px){
+  .portfo__content{
+      grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.image__modal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 5;
+  transition: var(--transition);
+  visibility: hidden;
+  opacity: 0;
+}
+
+.image__modal__show{
+  visibility: visible;
+  opacity: 1;
+}
+.image__modal--content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 400px;
+  min-width: 250px;
+  width: 100%;
+}
+.image__modal--content img{
+  width: 100%;
+}
+.modal__close--btn{
+  position: absolute;
+  right: -15px;
+  top: -15px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.modal__close--btn:hover{
+  color: var(--dark-color)!important;
+}
