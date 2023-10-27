@@ -13,8 +13,8 @@ const ComingSoon = () => {
   };
 
   useEffect(() => {
-    //setTimeout(redirectToHome, 5 * 60 * 1000);
-    setTimeout(redirectToHome, 5  * 1000);
+    setTimeout(redirectToHome, 5 * 60 * 1000);
+    //setTimeout(redirectToHome, 5  * 1000);
   }, []);
   return (
     <section className="container__coming" style = {{

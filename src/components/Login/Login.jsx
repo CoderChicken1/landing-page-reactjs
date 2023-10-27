@@ -147,13 +147,16 @@ const Login = () => {
             Login
           </button>
         </div>
-        <div className="signup-link">
+        <div className="signup-link flex">
           <input
             type="checkbox"
             checked={rememberMe}
             onChange={handleRememberMeChange}
           />
-          Remember Me <Link to="/register">Register here</Link>
+          Remember Me 
+          <div className="signup-link_register">
+          <Link to="/register">Register here</Link>
+          </div>
         </div>
       </form>
     </div>

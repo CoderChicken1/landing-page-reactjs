@@ -25,6 +25,26 @@
 .header__content--right img{
   object-fit: contain;
 }
+.header__content--bottom{
+  text-align: center;
+}
+.arrow__left{
+  background: white;
+  border-radius: 50%;
+  padding: 10px 15px;
+  margin: 10px;
+  cursor: pointer;
+}
+.arrow__right{
+  background: white;
+  border-radius: 50%;
+  padding: 10px 15px;
+  margin: 10px;
+  cursor: pointer;
+}
+.arrow__left:hover, .arrow__right:hover{
+  background-color: #3530d6d6;
+}
 @media(min-width: 992px){
   .header__content{
       flex-direction: row;
@@ -47,6 +67,26 @@
     margin: 0 auto;
     text-align: left;
     font-size: 15px;
+  }
+  .header__content--bottom{
+    text-align: center;
+  }
+  .arrow__left{
+    background: white;
+    border-radius: 50%;
+    padding: 10px 15px;
+    margin: 10px;
+    cursor: pointer;
+  }
+  .arrow__right{
+    background: white;
+    border-radius: 50%;
+    padding: 10px 15px;
+    margin: 10px;
+    cursor: pointer;
+  }
+  .arrow__left:hover, .arrow__right:hover{
+    background-color: #3530d6d6;
   }
 }
 

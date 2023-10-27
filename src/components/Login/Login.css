@@ -83,8 +83,7 @@ form .button input:hover{
 }
 .login__container form .signup-link{
   text-align: center;
-  margin-top: 20px;
-  font-size: 17px;
+  font-size: 18px;
 }
 .login__container form .signup-link a{
   color: #16a085;
@@ -92,4 +91,7 @@ form .button input:hover{
 }
 form .signup-link a:hover{
   text-decoration: underline;
+}
+.signup-link_register{
+  margin-left: auto;
 }

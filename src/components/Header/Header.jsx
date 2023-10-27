@@ -47,6 +47,10 @@ Companies in other industries have take the same approach and achieved amazing r
               <img src={images.introduce} alt="site logo" />
             </div>
           </div>
+            <div className="header__content--bottom">
+            <i class='arrow__left fa fa-chevron-left'></i>
+            <i class='arrow__right fa fa-chevron-right'></i>
+            </div>
         </div>
       </div>
     );
