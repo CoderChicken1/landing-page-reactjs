@@ -1,5 +1,5 @@
 {
-  "homepage": "https://LandingPage.github.io/landing_page_micron",
+  "homepage": "https://coderchicken1.github.io/LandingPage",
   "name": "landing_page_micron",
   "version": "0.1.0",
   "private": true,
@@ -18,7 +18,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "master -d build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
