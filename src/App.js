@@ -28,25 +28,25 @@ const ProtectedRoute = ({ children }) => {
 };
 const App = () => {
   const HomePage = () => {
-    // const navigate = useNavigate();
-    // const handleUnload = (e) => {
-    //   e.preventDefault();
-    //   const rememberMeSaved = localStorage.getItem("rememberMe");
-    //   if (rememberMeSaved === "false") {
-    //     localStorage.removeItem("token");
-    //   }
-    // };
+    const navigate = useNavigate();
+    const handleUnload = (e) => {
+      e.preventDefault();
+      const rememberMeSaved = localStorage.getItem("rememberMe");
+      if (rememberMeSaved === "false") {
+        localStorage.removeItem("token");
+      }
+    };
 
-    // useEffect(() => {
-    //   window.addEventListener("beforeunload", handleUnload);
-    //   if (
-    //     localStorage.getItem("token") == "" ||
-    //     localStorage.getItem("token") == null
-    //   ) {
-    //     navigate("/");
-    //   }
-    //   return () => window.removeEventListener("beforeunload", handleUnload);
-    // }, [handleUnload]);
+    useEffect(() => {
+      window.addEventListener("beforeunload", handleUnload);
+      if (
+        localStorage.getItem("token") == "" ||
+        localStorage.getItem("token") == null
+      ) {
+        navigate("/");
+      }
+      return () => window.removeEventListener("beforeunload", handleUnload);
+    }, [handleUnload]);
 
     return (
       <div>
