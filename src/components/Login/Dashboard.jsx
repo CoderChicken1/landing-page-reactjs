@@ -7,24 +7,24 @@ const Dashboard = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState({});
 
-  const handleUnload = (e) => {
-    e.preventDefault();
-    localStorage.removeItem("token");
-  };
+  // const handleUnload = (e) => {
+  //   e.preventDefault();
+  //   localStorage.removeItem("token");
+  // };
 
-  useEffect(() => {
-    window.addEventListener("beforeunload", handleUnload);
+  // useEffect(() => {
+  //   window.addEventListener("beforeunload", handleUnload);
 
-    if (
-      localStorage.getItem("token") == "" ||
-      localStorage.getItem("token") == null
-    ) {
-      navigate("/");
-    } else {
-      getUser();
-    }
-    return () => window.removeEventListener("beforeunload", handleUnload);
-  }, [handleUnload]);
+  //   if (
+  //     localStorage.getItem("token") == "" ||
+  //     localStorage.getItem("token") == null
+  //   ) {
+  //     navigate("/");
+  //   } else {
+  //     getUser();
+  //   }
+  //   return () => window.removeEventListener("beforeunload", handleUnload);
+  // }, [handleUnload]);
 
   const getUser = () => {
     axios
