@@ -5,6 +5,7 @@ import "./ComingSoon.css"
 import images from '../../constants/images';
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 const ComingSoon = () => {
   const navigate = useNavigate();
@@ -12,7 +13,8 @@ const ComingSoon = () => {
     navigate("/home");
   };
 
-  useEffect(() => {
+  useEffect(() => 
+  {
     setTimeout(redirectToHome, 5 * 60 * 1000);
     //setTimeout(redirectToHome, 5  * 1000);
   }, []);
@@ -36,3 +38,4 @@ const ComingSoon = () => {
 }
 
 export default ComingSoon;
+
