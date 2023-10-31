@@ -9,15 +9,30 @@ import { useState } from 'react';
 
 const ComingSoon = () => {
   const navigate = useNavigate();
-  const redirectToHome = () => {
-    navigate("/home");
-  };
+  const [count, setCount] = useState(parseInt(localStorage.getItem('count') || 5*60 * 1000, 10));
 
-  useEffect(() => 
-  {
-    setTimeout(redirectToHome, 5 * 60 * 1000);
-    //setTimeout(redirectToHome, 5  * 1000);
-  }, []);
+  useEffect(() => {
+    localStorage.setItem('count', count);
+    // Update count every second
+        const intervalId = setInterval(() => {
+          setCount((prevCount) => Math.max(prevCount - 1000, 0));
+        }, 1000);
+    if (count <=0)
+    {
+      navigate("/home");
+      localStorage.setItem('count', 300000);
+     // localStorage.removeItem('count');
+    }
+    if (localStorage.getItem("token") == "" || localStorage.getItem("token") == null)
+    {
+      localStorage.removeItem('count');
+    }
+    return () => {
+      clearInterval(intervalId);
+      localStorage.removeItem('count');
+    };
+  }, [count,navigate]);
+
   return (
     <section className="container__coming" style = {{
       background: `url(${images.coming_bg}) center/cover no-repeat`
@@ -27,7 +42,7 @@ const ComingSoon = () => {
         <h3>Stay tuned for something amazing.</h3>
         <FlipClockCountdown
           className='flip-clock'
-          to={new Date().getTime() +  5*60*1000}
+          to={new Date().getTime() +  count}
           labels={["MINUTES", "SECONDS"]}
           duration={0.5}
         />
