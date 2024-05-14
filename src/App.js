@@ -47,7 +47,6 @@ const App = () => {
     //   }
     //   return () => window.removeEventListener("beforeunload", handleUnload);
     // }, [handleUnload]);
-
     return (
       <div>
         <Header />
@@ -62,7 +61,7 @@ const App = () => {
 
   return (
     <div className="App">
-      {/* <Router>
+     {/* <Router>
       <Routes>
         <Route path="/welcome" element={<ComingSoon/>} />
         <Route path="/home" element={<HomePage/>} />
@@ -72,8 +71,9 @@ const App = () => {
         <Route path="/contact" element={<HomePage />} />
         <Route path="/footer" element={<HomePage/>} />
       </Routes>
-      </Router>      */}
-      <Router>
+      </Router>     */}
+      <HomePage/>
+      {/*  <Router>
         <Routes>
           <Route exact path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
@@ -135,7 +135,7 @@ const App = () => {
             }
           />
         </Routes>
-      </Router>
+      </Router>*/}
     </div>
   );
 };
